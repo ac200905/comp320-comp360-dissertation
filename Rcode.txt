@@ -1,0 +1,245 @@
+#install.packages("readr")
+#install.packages("psych")
+
+library(readr)
+library(ggplot2)
+
+# Find CSV data set and import it
+dat <-read.csv("D:/user_data.csv")
+
+# Graphs to look for correlations in the data I will be collecting
+
+# Box plot showing the differences in fun between both difficulty settings
+boxplot(dat$FunScoresDynamic, dat$FunScoresStatic)
+
+# Box plot showing the differences in challenge between both difficulty settings
+boxplot(dat$ChallengeScoresDynamic, dat$ChallengeScoresStatic)
+
+# Fun and Challenge together
+boxplot(dat$FunScoresDynamic, dat$FunScoresStatic, 
+
+dat$ChallengeScoresDynamic, dat$ChallengeScoresStatic,
+names = c("Enjoyed", "Enjoyed", 
+
+"Challenged", "Challenged" ), 
+main = "Player Enjoyment and Challenge", col=(c("orange","cyan")), 
+ylab = "% Agreement")
+
+
+legend("top", inset=.07, cex=0.8, legend = c("Dynamic","Static") , 
+                       col = c("orange", "cyan"), fill = c("orange", "cyan"))
+
+
+
+
+# Boxplot with both challenge and fun
+boxplot(dat$ChallengeScoresDynamic, dat$ChallengeScoresStatic, dat$FunScoresDynamic, dat$FunScoresStatic, 
+names = c("Dynamic Challenge", "Static Challenge", "Dynamic Fun",  "Static Fun"), 
+main = "Comparing Fun and Challenge", col=(c("orange","cyan")), 
+ylab = "% Agreement")
+
+# Boredom and frustration comparisons
+boxplot(dat$Dynamic...I.felt.bored, dat$Static...I.felt.bored, dat$Dynamic...I.felt.frustrated, dat$Static...I.felt.frustrated, 
+names = c("Dynamic Boredom", "Static Boredom", "Dynamic Frustration",  "Static Frustration"), 
+main = "Comparing Boredom and Frustration", col=(c("orange","cyan")), 
+ylab = "% Agreement")
+
+
+# Boxplot for 'Too hard to enjoy' and 'overcame being swarmed'
+boxplot(dat$Dynamic...It.became.too.difficult.to.enjoy, dat$Static...It.became.too.difficult.to.enjoy, 
+dat$Dynamic...I.was.able.to.overcome.being.swarmed, dat$Static...I.was.able.to.overcome.being.swarmed,
+names = c("Too Hard To Enjoy", "Too Hard To Enjoy", 
+"Overcame Swarm", "Overcame Swarm" ), 
+main = "General Difficulty Perceptions", col=(c("orange","cyan")), 
+ylab = "% Agreement")
+
+legend("top", inset=.07, cex=0.8, legend = c("Dynamic","Static") , 
+                       col = c("orange", "cyan"), fill = c("orange", "cyan"))
+
+
+# Boxplot of Questionnaire Results
+boxplot(dat$FunScoresDynamic, dat$FunScoresStatic,
+dat$ChallengeScoresDynamic, dat$ChallengeScoresStatic,
+dat$Dynamic...I.thought.it.was.too.hard, dat$Static...I.thought.it.was.too.hard, 
+dat$Dynamic...I.felt.skilled, dat$Static...I.felt.skilled,
+dat$Dynamic...I.felt.bored, dat$Static...I.felt.bored,
+dat$Dynamic...I.felt.pressured, dat$Static...I.felt.pressured,
+dat$Dynamic...I.felt.frustrated, dat$Static...I.felt.frustrated,
+names = c("Enjoyed", "Enjoyed",
+"Challenged", "Challenged",
+"Too Hard", "Too Hard", 
+"Skilled", "Skilled",
+"Bored", "Bored",
+"Pressured", "Pressured",
+"Frustrated", "Frustrated"), 
+main = "Questionnaire Perception Results", col=(c("orange","cyan")), 
+ylab = "% Agreement")
+
+legend("top", inset=.07, cex=0.8, legend = c("Dynamic","Static") , 
+                       col = c("orange", "cyan"), fill = c("orange", "cyan"))
+
+
+# Scatter graph with line of best fit to see if the more a player dies the less they enjoyed the game
+ggplot(dat, aes(x=FunScoresDynamic, y=PlayerDeathsStatic)) + geom_point() + geom_smooth(method=lm)
+
+
+
+# Dynamic - Player Deaths vs enjoyment
+ggplot(dat, aes(x=FunScoresDynamic, y=Dynamic.Deaths)) + geom_point(shape=4, color="darkred") + geom_smooth(method=lm, linetype="dashed",
+             color="darkgreen", fill="orange") +
+xlab("Player Enjoyment") + ylab("Player Deaths") + ggtitle("Dynamic Enjoyment vs Deaths") + 
+scale_y_continuous(breaks = c(0,5,10,15,20,25,30,35,40))
+
+# Static - Player Deaths vs enjoyment
+ggplot(dat, aes(x=FunScoresStatic, y=Static.Deaths)) + geom_point(shape=4, color="darkred") + geom_smooth(method=lm, linetype="dashed",
+             color="darkgreen", fill="cyan") +
+xlab("Player Enjoyment") + ylab("Player Deaths") + ggtitle("Static Enjoyment vs Deaths") + 
+scale_y_continuous(breaks = c(0,5,10,15,20,25,30,35,40))
+
+
+# Dynamic - KDR vs Enjoyment
+ggplot(dat, aes(x=FunScoresDynamic, y=Dynamic.K.D.Ratio)) + geom_point(shape=4, color="darkred") + geom_smooth(method=lm, linetype="dashed",
+             color="darkgreen", fill="orange") + 
+    xlab("Player Enjoyment") + ylab("Player K/D Ratio") + ggtitle("Dynamic Enjoyment vs Kill/Death Ratio") + 
+    scale_y_continuous(breaks = seq(0, 60, by = 5))
+
+# Static - KDR vs Enjoyment
+ggplot(dat, aes(x=FunScoresStatic, y=Static.K.D.Ratio)) + geom_point(shape=4, color="darkred") + geom_smooth(method=lm, linetype="dashed",
+             color="darkgreen", fill="cyan") + 
+    xlab("Player Enjoyment") + ylab("Player K/D Ratio") + ggtitle("Static Enjoyment vs Kill/Death Ratio") + 
+    scale_y_continuous(breaks = seq(0, 60, by = 5))
+
+
+# Dynamic - Experience VS Challenge perception
+ggplot(dat, aes(x=ChallengeScoresDynamic, y=Hours.played.per.week)) + geom_point(shape=4, color="darkred") + geom_smooth(method=lm, linetype="dashed",
+             color="darkgreen", fill="orange") + 
+     xlab("I felt challenged") + ylab("Hours played per week") + ggtitle("Dynamic - Experience VS Challenge")  + 
+     scale_y_continuous(breaks = seq(0, 100, by = 10)) + scale_x_continuous(breaks = seq(0, 100, by = 10)) + expand_limits(x = 0, y = 0)
+
+# Static - Experience VS Challenge perception
+ggplot(dat, aes(x=ChallengeScoresStatic, y=Hours.played.per.week)) + geom_point(shape=4, color="darkred") + geom_smooth(method=lm, linetype="dashed",
+             color="darkgreen", fill="cyan") + 
+     xlab("I felt challenged") + ylab("Hours played per week") + ggtitle("Static - Experience VS Challenge")  + 
+     scale_y_continuous(breaks = seq(0, 100, by = 10)) + scale_x_continuous(breaks = seq(0, 100, by = 10)) + expand_limits(x = 0, y = 0)
+
+
+# Dynamic skill vs challenge perceptions
+ggplot(dat, aes(x=ChallengeScoresDynamic, y=Dynamic...I.felt.skilled)) + geom_point(shape=4, color="darkred") + geom_smooth(method=lm, linetype="dashed",
+             color="darkgreen", fill="orange") + 
+    xlab("I felt challenged") + ylab("I felt skilled") + ggtitle("Dynamic - Skill vs Challenge Perceptions")  + 
+    scale_y_continuous(breaks = seq(0, 100, by = 10)) + scale_x_continuous(breaks = seq(0, 100, by = 10)) + expand_limits(x = 0, y = 0)
+
+# Static skill vs challenge perceptions
+ggplot(dat, aes(x=ChallengeScoresStatic, y=Static...I.felt.skilled)) + geom_point(shape=4, color="darkred") + geom_smooth(method=lm, linetype="dashed",
+             color="darkgreen", fill="cyan") + 
+    xlab("I felt challenged") + ylab("I felt skilled") + ggtitle("Static - Skill vs Challenge Perceptions")  + 
+    scale_y_continuous(breaks = seq(0, 100, by = 10)) + scale_x_continuous(breaks = seq(0, 100, by = 10)) + expand_limits(x = 0, y = 0)
+
+
+# Dynamic KDR vs Challenge perceptions
+ggplot(dat, aes(x=ChallengeScoresDynamic, y=Dynamic.K.D.Ratio)) + geom_point(shape=4, color="darkred") + geom_smooth(method=lm, linetype="dashed",
+             color="darkgreen", fill="orange") + 
+    xlab("I felt challenged") + ylab("Player K/D Ratio") + ggtitle("Dynamic - K/D Ratio vs Challenge Perceptions")  + 
+    scale_y_continuous(breaks = seq(0, 100, by = 10)) + scale_x_continuous(breaks = seq(0, 100, by = 10)) + expand_limits(x = 0, y = 0)
+
+# Static KDR vs Challenge perceptions
+ggplot(dat, aes(x=ChallengeScoresStatic, y=Static.K.D.Ratio)) + geom_point(shape=4, color="darkred") + geom_smooth(method=lm, linetype="dashed",
+             color="darkgreen", fill="cyan") + 
+    xlab("I felt challenged") + ylab("Player K/D Ratio") + ggtitle("Static - K/D Ratio vs Challenge Perceptions")  + 
+    scale_y_continuous(breaks = seq(0, 100, by = 10)) + scale_x_continuous(breaks = seq(0, 100, by = 10)) + expand_limits(x = 0, y = 0)
+
+
+
+
+
+
+
+ggplot(dat, aes(x=FunScoresStatic, y=Static.Deaths)) + geom_point() + geom_smooth(method=lm) + 
+xlab("Player Enjoyment") + ylab("Player Deaths") + ggtitle("Static Difficulty Setting") + 
+scale_y_continuous(breaks = c(0,5,10,15,20,25,30,35,40))
+
+
+ggplot(dat, aes(x=FunScoresDynamic, y=Dynamic.Deaths)) + geom_point() + geom_smooth(method=lm) + 
+xlab("Player Enjoyment") + ylab("Player Deaths") + ggtitle("Dynamic Difficulty Setting") + 
+scale_y_continuous(breaks = c(0,5,10,15,20,25,30,35,40))
+
+
+# Static Fun Scores vs Static KDR
+ggplot(dat, aes(x=FunScoresStatic, y=Static.K.D.Ratio)) + geom_point() + geom_smooth(method=lm) + 
+    xlab("Player Enjoyment") + ylab("Player K/D Ratio") + ggtitle("Static Difficulty Setting") + 
+    scale_y_continuous(breaks = seq(0, 60, by = 5))
+
+# Dynamic Fun Scores vs Dynamic KDR
+ggplot(dat, aes(x=FunScoresDynamic, y=Dynamic.K.D.Ratio)) + geom_point() + geom_smooth(method=lm) + 
+    xlab("Player Enjoyment") + ylab("Player K/D Ratio") + ggtitle("Dynamic Difficulty Setting") + 
+    scale_y_continuous(breaks = seq(0, 60, by = 5))
+
+
+
+
+
+ggplot(dat, aes(x=FunScoresDynamic, y=PlayerDeathsDynamic)) + geom_point() + geom_smooth(method=lm)
+
+# Scatter graphs showing the relationship between fun and challenge 
+ggplot(dat, aes(x=FunScoresDynamic, y=ChallengeScoresDynamic)) + geom_point() + geom_smooth(method=lm)
+ggplot(dat, aes(x=FunScoresStatic, y=ChallengeScoresStatic)) + geom_point() + geom_smooth(method=lm)
+
+# Scatter graph with line of best fit to see if the more the player died in one version, the more they 
+# died in the other version, indicating that player skill is a factor in both versions
+ggplot(dat, aes(x=Dynamic.Deaths, y=Static.Deaths)) + geom_point() + geom_smooth(method=lm)
+
+# Scatter graph showing the relationship between player deaths and challenge
+ggplot(dat, aes(x=ChallengeScoresDynamic, y=Dynamic.Deaths)) + geom_point() + geom_smooth(method=lm)
+ggplot(dat, aes(x=ChallengeScoresStatic, y=Static.Deaths)) + geom_point() + geom_smooth(method=lm)
+
+
+
+
+
+# T-Test for Hypothesis 1 -----------
+# Testing to see if players enjoyed the dynamic version more than the static
+funTest <- t.test(dat$FunScoresDynamic,dat$FunScoresStatic,paired=TRUE, alternative="greater")
+
+# If not normally distributed - paired dependent
+funTest <- wilcox.test(dat$FunScoresDynamic,dat$FunScoresStatic, paired = TRUE,  alternative="greater")
+
+funTest$p.value
+funTest$estimate
+
+# Check if normal distribution
+ggplot(data=dat, aes(dat$StaticEnjoyed)) + 
++     geom_histogram(breaks=seq(0, 100, by=1))
+
+# F-Test for Hypothesis 2 ------------
+# Testing to see if the variances of player deaths in static version is higher than the variance in player 
+# deaths in the dynamic version
+challengeTest <- var.test(dat$Static.Deaths, dat$Dynamic.Deaths, alternative = "greater")
+
+# Testing to see if the variances of player challenge scores in static version is higher than the variance in player 
+# challenge scores in the dynamic version
+challengeTest2 <- var.test(dat$ChallengeScoresStatic, dat$ChallengeScoresDynamic, alternative = "greater")
+
+# Chi-Square Test for Hypothesis 3 ---------
+
+correctVsIncorrect < c(numCorrect, numIncorrect)
+
+# Chi square test to see if players guessed the dynamic version correctly more significantly often than by random chance
+# If the p-values is smaller than 0.05 then the player guesses are significantly not commonly distributed between
+# correct and incorrect, thus meaning one is significantly higher and a further test needs to be made to see if it is the 
+# correct answer
+versionChoiceRandomTest <- chisq.test(correctVsIncorrect, p = c(1/2, 1/2))
+
+# If answers were not given at the rate of random chance, were answers more often correct?
+versionChoiceCorrectTest <- chisq.test(correctVsIncorrect, p = c(4/5, 1/5))
+
+
+
+# For pilot tests ---------
+pilotKDTest <- t.test(dat$EnemiesKilledStatic, y, paired = TRUE, alternative = "two.sided")
+
+# Use this scatter graph to see if Kill/Death Ratios are similar between players using the dynamic setting
+ggplot(dat, aes(x=dat$PlayerKDRatioDynamic, y=dat$PlayerKDRatioDynamic)) + geom_point() + geom_smooth(method=lm)
+
+
+
+

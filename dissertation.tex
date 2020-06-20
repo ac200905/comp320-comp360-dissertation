@@ -51,6 +51,9 @@
 % Insert additional usepackage commands here
 \usepackage{hyperref}
 
+\usepackage{listings}
+
+\renewcommand\textminus{-}
 
 \begin{document}
 %
@@ -230,21 +233,7 @@ In the questionnaire players are asked whether or not they agree with each state
 
 Since immersion is mainly considering the games story and aesthetics I have elected to not include questions about this component.
 Each statement in the GEQ matches one of these Player Experience Components. There are several statements relating to each component and the order in which the statements/questions are placed in the questionnaire is mixed. The mean score of each components results are then used to inform the results on that particular part of the player experience. This is to limit acquiescence response bias and to get more realistic and correct data \cite{winkler1982controlling}. 
-The majority of my testers will be students, taking time out of their day to playtest my game and answer the questionnaire I create. Ideally the questionnaire will be much shorter than 27 questions, especially if I ask them to play both versions of the game and fill out a questionnaire for each. Therefore I have narrowed down these questions. Clearly, under other circumstances, more questions would provide more reliable results, but it has been shown that if questionnaires are too long they can cause the user to stop answering thoughtfully which can skew results and introduce bad data. I believe under the conditions I will be playtesting and with whom will be participating in the playtests, it is best to be prudent and not draw out the tests to interminable lengths. The questions  can be seen in Table II.
-
-
-\subsection{Analysis Plan}
-The results of the experiment should give an indication as to how player experience was affected by the two difficulty systems. Results will be gathered by way of questionnaires built into the artefact and telemetry data such as player deaths/kills. This data will be stored in a CSV file and analysed using RStudio.
-
-I will conduct a paired samples t-test to compare the means between questionnaire results of the two difficulty systems.
-
-\begin{figure}[h]
-	\includegraphics[width=1.0\linewidth]{ttestresult.jpg}
-	\caption{An example t-test in RStudio using mock data}
-	\label{Analysis Test}
-\end{figure} 
-
-The example above is using mock data that I created in order to determine what tests to carry out using R. Where ``Fun2'' refers to the \textit{``It felt fun''} (Table II) question asked after playing the dynamic difficulty setting and ``Fun1'' refers to the same question asked after playing the static difficulty setting. If my hypothesis is correct, this should show differences in player enjoyment, specifically a higher mean value for answers regarding ``Fun2''. I will repeat these tests for the different questions in my questionnaires with regards to their various player experience factors. I will also be able to compare the differences in number of player deaths between the two difficulty systems. This should also help evaluate my second hypothesis, that the challenge players claim to experience when playing the static difficulty system will be much more varied than the dynamic system, due to the nature of the dynamic system adapting to the players skill level. This hypothesis suggests that the standard deviation amongst the challenge category questions should be higher in the static version than in the dynamic version.
+The majority of my testers will be students, taking time out of their day to playtest my game and answer the questionnaire I create. Ideally the questionnaire will be much shorter than 27 questions, especially if I ask them to play both versions of the game and fill out a questionnaire for each. Therefore I have narrowed down these questions. Clearly, under other circumstances, more questions would provide more reliable results, but it has been shown that if questionnaires are too long they can cause the user to stop answering thoughtfully which can skew results and introduce bad data. I believe under the conditions I will be playtesting and with whom will be participating in the playtests, it is best to be prudent and not draw out the tests to interminable lengths. The questions can be seen in figure 11.
 
 
 \subsection{Dynamic Difficulty Algorithm}
@@ -272,7 +261,7 @@ The player can shoot the gun using the left click mouse button. On click, a rand
 
 \begin{figure}[h]
 	\includegraphics[width=1.0\linewidth]{artefactscreenshotlevelspawns.jpg}
-	\caption{Screenshot of the Level Layout}
+	\caption{Screenshot of the Level Layout with Spawn Points Circled Red}
 	\label{Analysis Test}
 \end{figure} 
 
@@ -323,40 +312,20 @@ This hypothesis was intended to judge whether or not players enjoyed playing the
 
 
 \begin{figure}[h]
-	\includegraphics[width=1.0\linewidth]{boxplotfun.jpg}
-	\caption{Boxplot of Enjoyment Perceptions}
+	\includegraphics[width=1.0\linewidth]{playerenjoymentandchallenge.jpg}
+	\caption{Boxplot of Enjoyment and Challenge Perceptions}
 	\label{Analysis Test}
 \end{figure} 
 
-\begin{figure}[h]
-	\includegraphics[width=1.0\linewidth]{boxplotfun.jpg}
-	\caption{Boxplot of Enjoyment Perceptions}
+\begin{figure*}[h]
+	\includegraphics[width=1.0\linewidth]{questionnaireboxplot.jpg}
+	\caption{How Players Felt Playing Each Difficulty System}
 	\label{Analysis Test}
-\end{figure} 
+\end{figure*} 
 
-\begin{figure}[h]
-	\includegraphics[width=1.0\linewidth]{dynamicfunKDR.jpg}
-	\caption{Scatter plot of Player Enjoyment vs Player Kill/Death Ratio}
-	\label{Analysis Test}
-\end{figure} 
 
-\begin{figure}[h]
-	\includegraphics[width=1.0\linewidth]{staticfunKDR.jpg}
-	\caption{Static Scatter plot of Player Enjoyment vs Player Kill/Death Ratio}
-	\label{Analysis Test}
-\end{figure} 
 
-\begin{figure}[h]
-	\includegraphics[width=1.0\linewidth]{dynamicfundeath.jpg}
-	\caption{Dynamic Scatter plot of Player Enjoyment vs Player Deaths}
-	\label{Analysis Test}
-\end{figure} 
 
-\begin{figure}[h]
-	\includegraphics[width=1.0\linewidth]{staticfundeath.jpg}
-	\caption{Static Scatter plot of Player Enjoyment vs Player Deaths}
-	\label{Analysis Test}
-\end{figure} 
 
 \subsection{Hypothesis 2 - There will be more variation in how challenged players were playing with static difficulty than when playing with dynamic difficulty}
 
@@ -366,6 +335,8 @@ Interestingly, player perception of difficulty may not be as varied as can be se
 
 This seems to indicate that although the difficulty appears to be more varied based on player deaths with the static difficulty, the perception of difficulty among players is less varied than one would expect.
 
+
+
 \subsection{Hypothesis 3 - Players will be unable to reliably judge which version used dynamic difficulty}
 
 The data showed that 36 out of the 61 participants in the study correctly guessed which level used the dynamic difficulty system. A Chi-squared test was performed to determine the probability that this was higher that random chance. The test produced a p-value of 0.159. This p-value is low enough to discount the null hypothesis. This suggests that players were not able to reliably identify which version used dynamic difficulty.
@@ -373,21 +344,40 @@ The data showed that 36 out of the 61 participants in the study correctly guesse
 
 
 \begin{figure}[h]
-	\includegraphics[width=1.0\linewidth]{boxplotchallenge.jpg}
+	\includegraphics[width=1.0\linewidth]{difficultyperceptions.jpg}
 	\caption{Boxplot of Challenge Perceptions}
 	\label{Analysis Test}
 \end{figure} 
 
 \section{Discussion}
+The results from this experiment suggest that player enjoyment and challenge is affected by a games difficulty system. Although not drastically different, as shown in figure 5, the evidence suggests that the dynamic difficulty as implemented in this particular experiment was more enjoyable and less challenging to players than the static difficulty. The potential reasons behind this are discussed in this section.
 
+As you can see from the findings illustrated in figure 6, on average players found the dynamic version more enjoyable than the static version. This is a fairly small difference but since the difficulty system is the only thing that was changed between the two levels, it's still a significant difference. The findings also show that players generally didn't get bored playing either version. T
+
+The static version could become too hard for some players to enjoy whereas the dynamic version suffered from this problem less. Evidence that this could be the case can be seen in figure 7. This may indicate that the dynamic algorithm is functioning correctly in adapting challenge to player skill. The alternative could be that the static version was just designed to be too difficult for most players despite the researcher using the pilot tests to verify the overall difficulty of the static version.
+
+The game would allow up to 15 enemies on the screen at a time if players could not defeat them fast enough, this could lead to a swarm of enemies attacking the player at times. As shown in figure 7, these swarms were more likely to be overcome by the player in the dynamic version. This is likely due to the fact that enemy speed values would be lowered if the player is struggling in the dynamic version whereas in the static version the enemy speed and spawn rate steadily increases regardless of the skill of the individual player. The ability of the player to overcome adversity is a possible factor in how much they enjoyed the game and how difficult it felt for them.
+
+In figure 15 we can see that with the dynamic version, there is a very slight positive correlation between how skilled players felt and how challenged they felt. The opposite can be seen with the static version in figure 16 where it seems that the more skilled a player felt, the less challenging the game felt. This is an interesting observation and could suggest that when a difficulty system is dynamic, the player is more likely to feel like they are good at the game despite feeling that the game is challenging to them or perhaps even because the game is challenging them appropriately for how good they are.
+
+Figure 6 also shows that with the dynamic version, players never felt bored and rarely felt frustrated. This, coupled with the fact players did feel challenged and similarly skilled, promotes the idea that the dynamic version successfully achieved ''Game Flow" as discussed previously and in figure 1. This cannot be said for the static version since although not feeling bored, more players felt frustrated and there was much more disparity between how challenged they felt and how skilled they felt. 
+
+- what it shows
+
+
+
+- potential reasons 
 
 
 
 \section{Limitations}
 
-
+Although it is particularly encouraging to see that the results in figure 6 reflect the idea that the dynamic version indeed created flow, it cannot be forgotten that flow is particularly difficult to quantify and correctly assess. This is especially true with a game as short as the game in this experiment.
 
 \section{Further Research}
+
+
+As stated in the limitations section above, there are many things that could be studied further to gain insight into how dynamic difficulty can affect player enjoyment and challenge. Player experience and game flow are particularly hard to quantify and assess in such a small scoped experiment. A more lengthy study on a game with a longer experiment time would be ideal. Since most commercial games can last several hours, it is important to be able to conduct more experiments on dynamic difficulty in a controlled manner on a much larger scale than was done in this study. The levels in this study only lasted two and a half minutes each and so cannot replicate the experience created by most commercial games today. It would be interesting to see how bigger games with more content would be affected by dynamic difficulty compared with standard static difficulty systems. 
 
 % references section
 
@@ -397,36 +387,295 @@ The data showed that 36 out of the 61 participants in the study correctly guesse
 % Appendices
 
 \appendices
+\section{Acknowledgements}
+I would like to thank all of the staff at Falmouth University for their help and support, particularly on the BSc Computing for Games Course. I would also like to thank my dissertation supervisor Brian McDonald for keeping us students on track. Many thanks also to my fellow university students for their help with playtesting and dissertation feedback.
+
+\section{Reflective Report}
+The following subsections will discuss the various issues I have encountered during the development of this dissertation. Each issue will declare a SMART goal that can be actioned upon to help better myself in those areas.
+
+\subsection{Artefact Verification}
+
+\subsection{Approaching Participants}
+
+\subsection{Level Design}
+
+\subsection{Time Management}
+
+\subsection{Motivation}
+
 \section{Additional Materials}
 
 Link to Repository:
+\url{https://gamesgit.falmouth.ac.uk/scm/~ac200905/dda_artefact.git}
 
+The specific script I have made for the Dynamic Difficulty Algorithm is AIDirector.cs but the entirety of the Unity Project was created and designed for the experiment.
 
+\subsection{Unit Tests}
+Figure 13 shows the unit tests created for the AIDirector using the Unity Test Runner.
 
-\url{https://AC200905@gamesgit.falmouth.ac.uk/scm/s1920l3teamicop/punkey.git}
-
-
-
-
-Currently the computing artefact has been created using the Team project as a base.
-I have been working on my dynamic difficulty algorithm in the dynamic difficulty branch.
-The specific script I have made for this artefact is AIDirector.cs.
-
-
+\begin{figure}[h]
+	\includegraphics[width=1.0\linewidth]{unittests.jpg}
+	\caption{Static Scatter plot of Player Enjoyment vs Player Deaths}
+	\label{Analysis Test}
+\end{figure}
 
 \begin{figure*}[h]
-	\includegraphics[width=1.0\linewidth]{consentformingame.jpg}
+	\includegraphics[width=0.75\linewidth]{consentformingame.jpg}
 	\caption{Consent Form}
 	\label{Analysis Test}
 \end{figure*} 
 
 \begin{figure*}[h]
-	\includegraphics[width=1.0\linewidth]{questionnaireingame.jpg}
+	\includegraphics[width=0.75\linewidth]{questionnaireingame.jpg}
 	\caption{In-Game Questionnaire}
 	\label{Analysis Test}
 \end{figure*} 
 
-Figure 4 shows the current iteration of the consent form. While currently it is designed to be a paper form, it may be advisable that I implement it into the beginning of the artefact itself for simplicity's sake.
+
+
+Figure 14 shows the final iteration of the consent form. While originally it was designed to be in paper form, it was decided that implementing it into the beginning of the artefact itself would be more efficient and enables the participant to consent before even being able to access the game.
+
+\begin{figure*}[h]
+	\includegraphics[width=0.75\linewidth]{dynamicfunKDR.jpg}
+	\caption{Scatter plot of Player Enjoyment vs Player Kill/Death Ratio}
+	\label{Analysis Test}
+\end{figure*} 
+
+\begin{figure*}[h]
+	\includegraphics[width=0.75\linewidth]{staticfunKDR.jpg}
+	\caption{Static Scatter plot of Player Enjoyment vs Player Kill/Death Ratio}
+	\label{Analysis Test}
+\end{figure*} 
+
+\begin{figure*}[h]
+	\includegraphics[width=0.75\linewidth]{dynamicfundeath.jpg}
+	\caption{Dynamic Scatter plot of Player Enjoyment vs Player Deaths}
+	\label{Analysis Test}
+\end{figure*} 
+
+\begin{figure*}[h]
+	\includegraphics[width=0.75\linewidth]{staticfundeath.jpg}
+	\caption{Static Scatter plot of Player Enjoyment vs Player Deaths}
+	\label{Analysis Test}
+\end{figure*}
+
+\begin{figure*}[h]
+	\includegraphics[width=0.75\linewidth]{dynamicchallengevsskilled.jpg}
+	\caption{Dynamic Scatter plot of Skill and Challenge Perceptions}
+	\label{Analysis Test}
+\end{figure*} 
+
+\begin{figure*}[h]
+	\includegraphics[width=0.75\linewidth]{staticchallengevsskilled.jpg}
+	\caption{Static Scatter plot of Skill and Challenge Perceptions}
+	\label{Analysis Test}
+\end{figure*} 
+
+\begin{figure*}[h]
+	\includegraphics[width=0.75\linewidth]{dynamicexpvschallenge.jpg}
+	\caption{Dynamic Scatter plot of Experience and Challenge Perceptions}
+	\label{Analysis Test}
+\end{figure*}
+
+\begin{figure*}[h]
+	\includegraphics[width=0.75\linewidth]{staticexpvschallenge.jpg}
+	\caption{Static Scatter plot of Experience and Challenge Perceptions}
+	\label{Analysis Test}
+\end{figure*}
+
+ 
+\begin{center}
+\begin{figure*}
+
+
+\begin{lstlisting}[language=R]
+#install.packages("readr")
+#install.packages("psych")
+
+library(readr)
+library(ggplot2)
+
+# Find CSV data set and import it
+dat <-read.csv("D:/user_data.csv")
+
+# Graphs to look for correlations in the data I will be collecting
+
+# Box plot showing the differences in fun between both difficulty settings
+boxplot(dat$FunScoresDynamic, dat$FunScoresStatic)
+
+# Box plot showing the differences in challenge between both difficulty settings
+boxplot(dat$ChallengeScoresDynamic, dat$ChallengeScoresStatic)
+
+# Fun and Challenge together
+boxplot(dat$FunScoresDynamic, dat$FunScoresStatic, 
+
+dat$ChallengeScoresDynamic, dat$ChallengeScoresStatic,
+names = c("Enjoyed", "Enjoyed", 
+
+"Challenged", "Challenged" ), 
+main = "Player Enjoyment and Challenge", col=(c("orange","cyan")), 
+ylab = "% Agreement")
+legend("top", inset=.07, cex=0.8, legend = c("Dynamic","Static") , 
+col = c("orange", "cyan"), fill = c("orange", "cyan"))
+
+
+# Boxplot with both challenge and fun
+boxplot(dat$ChallengeScoresDynamic, dat$ChallengeScoresStatic, 
+dat$FunScoresDynamic, dat$FunScoresStatic, 
+names = c("Dynamic Challenge", "Static Challenge", "Dynamic Fun",  
+"Static Fun"), 
+main = "Comparing Fun and Challenge", col=(c("orange","cyan")), 
+ylab = "% Agreement")
+
+# Boredom and frustration comparisons
+boxplot(dat$Dynamic...I.felt.bored, dat$Static...I.felt.bored, 
+dat$Dynamic...I.felt.frustrated, dat$Static...I.felt.frustrated, 
+names = c("Dynamic Boredom", "Static Boredom", "Dynamic Frustration",  
+"Static Frustration"), 
+main = "Comparing Boredom and Frustration", col=(c("orange","cyan")), 
+ylab = "% Agreement")
+
+# Boxplot for 'Too hard to enjoy' and 'overcame being swarmed'
+boxplot(dat$Dynamic...It.became.too.difficult.to.enjoy, 
+dat$Static...It.became.too.difficult.to.enjoy, 
+dat$Dynamic...I.was.able.to.overcome.being.swarmed, 
+dat$Static...I.was.able.to.overcome.being.swarmed,
+names = c("Too Hard To Enjoy", "Too Hard To Enjoy", 
+"Overcame Swarm", "Overcame Swarm" ), 
+main = "General Difficulty Perceptions", col=(c("orange","cyan")), 
+ylab = "% Agreement")
+
+legend("top", inset=.07, cex=0.8, legend = c("Dynamic","Static") , 
+col = c("orange", "cyan"), fill = c("orange", "cyan"))
+
+
+
+\end{lstlisting}
+
+\end{figure*}
+
+\end{center}
+
+
+
+
+\begin{center}
+\begin{figure*}
+
+
+\begin{lstlisting}[language=R]
+# Boxplot of Questionnaire Results
+boxplot(dat$FunScoresDynamic, dat$FunScoresStatic,
+dat$ChallengeScoresDynamic, dat$ChallengeScoresStatic,
+dat$Dynamic...I.thought.it.was.too.hard, 
+dat$Static...I.thought.it.was.too.hard, 
+dat$Dynamic...I.felt.skilled, dat$Static...I.felt.skilled,
+dat$Dynamic...I.felt.bored, dat$Static...I.felt.bored,
+dat$Dynamic...I.felt.pressured, dat$Static...I.felt.pressured,
+dat$Dynamic...I.felt.frustrated, dat$Static...I.felt.frustrated,
+names = c("Enjoyed", "Enjoyed",
+"Challenged", "Challenged",
+"Too Hard", "Too Hard", 
+"Skilled", "Skilled",
+"Bored", "Bored",
+"Pressured", "Pressured",
+"Frustrated", "Frustrated"), 
+main = "Questionnaire Perception Results", col=(c("orange","cyan")), 
+ylab = "% Agreement")
+
+legend("top", inset=.07, cex=0.8, legend = c("Dynamic","Static") , 
+col = c("orange", "cyan"), fill = c("orange", "cyan"))
+
+
+# Scatter graph with line of best fit to see if the more a player 
+# dies the less they enjoyed the game
+ggplot(dat, aes(x=FunScoresDynamic, y=PlayerDeathsStatic)) + geom_point() +
+geom_smooth(method=lm)
+
+# Dynamic - Player Deaths vs enjoyment
+ggplot(dat, aes(x=FunScoresDynamic, y=Dynamic.Deaths)) + 
+geom_point(shape=4, color="darkred") + 
+geom_smooth(method=lm, linetype="dashed",
+color="darkgreen", fill="orange") +
+xlab("Player Enjoyment") + ylab("Player Deaths") + 
+ggtitle("Dynamic Enjoyment vs Deaths") + 
+scale_y_continuous(breaks = c(0,5,10,15,20,25,30,35,40))
+
+# Static - Player Deaths vs enjoyment
+ggplot(dat, aes(x=FunScoresStatic, y=Static.Deaths)) + 
+geom_point(shape=4, color="darkred") + 
+geom_smooth(method=lm, linetype="dashed",
+             color="darkgreen", fill="cyan") +
+xlab("Player Enjoyment") + ylab("Player Deaths") +
+ ggtitle("Static Enjoyment vs Deaths") + 
+scale_y_continuous(breaks = c(0,5,10,15,20,25,30,35,40))
+
+\end{lstlisting}
+
+\end{figure*}
+
+\end{center}
+
+
+
+
+\begin{center}
+\begin{figure*}
+
+
+\begin{lstlisting}[language=R]
+# T-Test for Hypothesis 1 -----------
+# Testing to see if players enjoyed the dynamic version more than the static
+funTest <- t.test(dat$FunScoresDynamic,dat$FunScoresStatic,paired=TRUE, alternative="greater")
+
+# If not normally distributed - paired dependent
+funTest <- wilcox.test(dat$FunScoresDynamic,dat$FunScoresStatic, paired = TRUE,  alternative="greater")
+
+funTest$p.value
+funTest$estimate
+
+# Check if normal distribution
+ggplot(data=dat, aes(dat$StaticEnjoyed)) + 
++     geom_histogram(breaks=seq(0, 100, by=1))
+
+# F-Test for Hypothesis 2 ------------
+# Testing to see if the variances of player deaths in static version is higher than the 
+# variance in player deaths in the dynamic version
+challengeTest <- var.test(dat$Static.Deaths, dat$Dynamic.Deaths, alternative = "greater")
+
+# Testing to see if the variances of player challenge scores in static version is higher than 
+# the variance in player challenge scores in the dynamic version
+challengeTest2 <- var.test(dat$ChallengeScoresStatic, dat$ChallengeScoresDynamic, alternative
+= "greater")
+
+# Chi-Square Test for Hypothesis 3 ---------
+correctVsIncorrect < c(numCorrect, numIncorrect)
+
+# Chi square test to see if players guessed the dynamic version correctly more significantly
+# often than by random chance
+# If the p-values is smaller than 0.05 then the player guesses are significantly not commonly
+# distributed between correct and incorrect, thus meaning one is significantly higher and a
+# further test needs to be made to see if it is the correct answer
+versionChoiceRandomTest <- chisq.test(correctVsIncorrect, p = c(1/2, 1/2))
+
+# If answers were not given at the rate of random chance, were answers more often correct?
+versionChoiceCorrectTest <- chisq.test(correctVsIncorrect, p = c(4/5, 1/5))
+
+
+# For pilot tests ---------
+pilotKDTest <- t.test(dat$EnemiesKilledStatic, y, paired = TRUE, alternative = "two.sided")
+
+# Use this scatter graph to see if Kill/Death Ratios are similar between players using the
+# dynamic setting
+ggplot(dat, aes(x=dat$PlayerKDRatioDynamic, y=dat$PlayerKDRatioDynamic)) + geom_point() 
++ geom_smooth(method=lm)
+
+
+\end{lstlisting}
+
+\end{figure*}
+
+\end{center}
 
 % that's all folks
 \end{document}
