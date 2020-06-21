@@ -49,7 +49,13 @@
 
 \usepackage{graphicx}
 % Insert additional usepackage commands here
-\usepackage{hyperref}
+%\usepackage{hyperref}
+
+\usepackage[%  
+    colorlinks=true,
+    pdfborder={0 0 0},
+    allcolors=blue
+]{hyperref}
 
 \usepackage{listings}
 
@@ -110,12 +116,12 @@ Section II of the paper will look at some of the theories and concepts that are 
 Player experience in games is often described using terms such as flow, immersion, engagement, fun, and presence \cite{isbister2008game} \cite{czikszentmihalyi1990flow} \cite{mcmahan2013immersion}. Measuring this is no easy task due to the subjective nature of player experience. Although tools can be used to objectively measure some quantitative aspects of the player experience such as biosensors to measure heart rates  or electrodermal activity (measure of sweat perspiration)\cite{mikami2017adaptable} \cite{ambinder2011biofeedback} \cite{liu2009dynamic}, they still require evaluation based on the subjective experiences of the individual. Questionnaires can be particularly useful in measuring the subjective experiences of players in a quantifiable manner, due to the fact they include a number of standardised tests that can be aligned with what the researcher intends to measure about said experience \cite{ijsselsteijn2013game}.
 
 To ensure that player experience is enjoyable, the idea of Flow must be considered. Cziksentmihalyi \cite{czikszentmihalyi1990flow} \cite{csikszentmihalyi2014toward} uses the term ``Optimal Experience'' to describe the moments in which a person feels a deep sense of enjoyment or exhilaration and states that these moments are, more often than not, due to events in which that person's body or mind is stretched to its limits in an effort to achieve something difficult or challenging.
-The experience of Flow, or ``Optimal Experience'', in games is the experience gamers describe when immersed in video games, becoming entranced and totally focussed on their actions and losing track of time and other worries. Whether a player enjoys a video game is largely dependent on whether that game provides a Flow experience. In Flow theory, the idea of the Flow Zone (see figure 1) is the notion that in order to maintain a players Flow experience, the game must ideally balance challenge and the ability of the player to overcome that challenge. If the game becomes too challenging, the player becomes disheartened and anxious \cite{gilleade2004using}. On the other hand, if the game becomes too easy, the player grows bored and disinterested \cite{chanel2008boredom}. The art of good game design, is therefore in the ability of the developer to balance challenge and player ability or skill for the duration of a game experience \cite{koster2013theory}. This becomes more difficult the larger the game grows and also the larger the potential audience becomes. With a larger potential audience, the fact that each person experiences activities in different ways becomes problematic for game designers. Every player is different, with varying skill levels and expects a different level of challenge in order to experience Flow \cite{czikszentmihalyi1990flow}. The most widely used solution for this problem in video games has been the implementation of various difficulty modes (Easy, Medium, Hard etc) \cite{alexander2013investigation}. One of the problems with this is the lack of detail the player is given when choosing a difficulty level. How easy is Easy? How hard is Hard? Without playing through the game, the player won't really be able to know which mode is best suited for their skills, since difficulty ratings are generally subjective \cite{qin2009effects}. This is where the notion of DDA becomes very useful to developers.
+The experience of Flow, or ``Optimal Experience'', in games is the experience gamers describe when immersed in video games, becoming entranced and totally focussed on their actions and losing track of time and other worries. Whether a player enjoys a video game is largely dependent on whether that game provides a Flow experience. In Flow theory, the idea of the Flow Zone (see figure \ref{fig::1}) is the notion that in order to maintain a players Flow experience, the game must ideally balance challenge and the ability of the player to overcome that challenge. If the game becomes too challenging, the player becomes disheartened and anxious \cite{gilleade2004using}. On the other hand, if the game becomes too easy, the player grows bored and disinterested \cite{chanel2008boredom}. The art of good game design, is therefore in the ability of the developer to balance challenge and player ability or skill for the duration of a game experience \cite{koster2013theory}. This becomes more difficult the larger the game grows and also the larger the potential audience becomes. With a larger potential audience, the fact that each person experiences activities in different ways becomes problematic for game designers. Every player is different, with varying skill levels and expects a different level of challenge in order to experience Flow \cite{czikszentmihalyi1990flow}. The most widely used solution for this problem in video games has been the implementation of various difficulty modes (Easy, Medium, Hard etc) \cite{alexander2013investigation}. One of the problems with this is the lack of detail the player is given when choosing a difficulty level. How easy is Easy? How hard is Hard? Without playing through the game, the player won't really be able to know which mode is best suited for their skills, since difficulty ratings are generally subjective \cite{qin2009effects}. This is where the notion of DDA becomes very useful to developers.
 
 \begin{figure}[h]
 	\includegraphics[width=1.0\linewidth]{FlowChart.jpg}
 	\caption{Chen, Flow in Games ~\cite{Chen:2007:FG:1232743.1232769}.}
-	\label{FlowChart}
+	\label{fig::1}
 \end{figure} 
 
 
@@ -232,7 +238,7 @@ In the questionnaire players are asked whether or not they agree with each state
 
 Since immersion is mainly considering the games story and aesthetics the researcher has elected to not include questions about this component.
 Each statement in the GEQ matches one of these Player Experience Components. There are several statements relating to each component and the order in which the statements/questions are placed in the questionnaire is mixed. The mean score of each components results are then used to inform the results on that particular part of the player experience. This is to limit acquiescence response bias and to get more realistic and correct data \cite{winkler1982controlling}. 
-The majority of the testers are students, taking time out of their day to playtest the game and answer the questionnaire. Ideally the questionnaire should therefore be much shorter than 27 questions, especially if they must play both versions of the game and fill out a questionnaire for each. Therefore the questions have been altered and narrowed down to the questions in figure 10. Clearly, under other circumstances, more questions would provide more reliable results, but it has been shown that if questionnaires are too long they can cause the user to stop answering thoughtfully which can skew results and introduce bad data. Under the conditions of the experiment and with whom will be participating in the playtests, it is best to be prudent and not draw out the tests to interminable lengths.
+The majority of the testers are students, taking time out of their day to playtest the game and answer the questionnaire. Ideally the questionnaire should therefore be much shorter than 27 questions, especially if they must play both versions of the game and fill out a questionnaire for each. Therefore the questions have been altered and narrowed down to the questions in \textit{figure \ref{fig::10}}. Clearly, under other circumstances, more questions would provide more reliable results, but it has been shown that if questionnaires are too long they can cause the user to stop answering thoughtfully which can skew results and introduce bad data. Under the conditions of the experiment and with whom will be participating in the playtests, it is best to be prudent and not draw out the tests to interminable lengths.
 
 
 
@@ -240,29 +246,30 @@ The majority of the testers are students, taking time out of their day to playte
 \begin{figure}[h]
 	\includegraphics[width=1.0\linewidth]{artefactscreenshot.jpg}
 	\caption{Screenshot of the initial prototype Artefact}
-	\label{Analysis Test}
+	\label{fig::2}
 \end{figure} 
 
 \subsection{Ethical Considerations}
-There should be little to no ethical risks involved in this study. The researcher is continually referencing the British Computer Society Code of Conduct \cite{bcs} and its guidance on duty and integrity when conducting any studies and considering any ethical implications. Participants have been sampled from members of the Games Academy and were subject to the Code of Research Ethics at Falmouth University. Each participant read and agreed to a consent form (see figure 9) as well as an information sheet discussing the reasons for the study. It was stated that all participants had the right to opt-out of the study any any time without consequences and will have all the rights afforded to them as stated in the General Data Protection Regulation \cite{gdpr} if applicable, however, personal information such as name, date of birth, gender were not needed in this study. All data gathered was anonymous and confidential, with any data being stored on a secure university network drive. Participants were asked to pause the study and take a break in the unlikely event that the experiment lasted more than 30 minutes. This was to prevent any possible bouts of nausea, eye strain, or general discomfort from looking at computer screens for too long. The software was designed to account for this possibility.
+There should be little to no ethical risks involved in this study. The researcher is continually referencing the British Computer Society Code of Conduct \cite{bcs} and its guidance on duty and integrity when conducting any studies and considering any ethical implications. Participants have been sampled from members of the Games Academy and were subject to the Code of Research Ethics at Falmouth University. Each participant read and agreed to a consent form (see \textit{figure \ref{fig::9}}) as well as an information sheet discussing the reasons for the study. It was stated that all participants had the right to opt-out of the study any any time without consequences and will have all the rights afforded to them as stated in the General Data Protection Regulation \cite{gdpr} if applicable, however, personal information such as name, date of birth, gender were not needed in this study. All data gathered was anonymous and confidential, with any data being stored on a secure university network drive. Participants were asked to pause the study and take a break in the unlikely event that the experiment lasted more than 30 minutes. This was to prevent any possible bouts of nausea, eye strain, or general discomfort from looking at computer screens for too long. The software was designed to account for this possibility.
 
 \section{Artefact}
 The computing artefact is a top-down 2D shooting game wherein the player defends themselves from an unending wave of zombie enemies. The following subsections describe the game in more detail.
 
 \subsection{Basic Mechanics}
- The player has several abilities or mechanics in-built. The player has eight-directional movement using the WASD keys and can use the mouse to aim the cursor and thus aim the gun. 
-The player has a cone of vision as shown in \textit{fig 4} that aims in the direction between the player character and cursor. This aiming cone shrinks and expands based on movement. The cone expands to a maximum of 25 degrees when the player moves to simulate less accuracy as is used in most first person shooters. The cone shrinks to a minimum of 5 degrees when the player is not moving or when the player 'aims down the sights' (ADS) using the right click mouse button or Left Shift, however the player movement speed is altered by a factor of 0.7, thus slowing the player and making them more vulnerable. 
+The player has several abilities or mechanics in-built. The player has eight-directional movement using the WASD keys and can use the mouse to aim the cursor and thus aim the gun. 
+The player has a cone of vision as shown in \textit{figure \ref{fig::4}} that aims in the direction between the player character and cursor. This aiming cone shrinks and expands based on movement. The cone expands to a maximum of 25 degrees when the player moves to simulate less accuracy as is used in most first person shooters. The cone shrinks to a minimum of 5 degrees when the player is not moving or when the player 'aims down the sights' (ADS) using the right click mouse button or Left Shift, however the player movement speed is altered by a factor of 0.7, thus slowing the player and making them more vulnerable. 
 The player can shoot the gun using the left click mouse button. On click, a random vector within the aiming cone field of view is chosen and a ray is cast in that direction to simulate the bullet. It takes three shots to kill an enemy when hit in a not vital area. The center of the front of the enemy is considered a vital area, therefore when the player bullet hits that weak spot the enemy is automatically killed regardless of it's remaining health. This introduces a further element of skill to the game.
+The gun has a magazine of 12 bullets and reloads automatically when empty but can be reloaded manually by pressing the ''R" key. This adds another strategic element to gameplay.
 
 \subsection{Tutorial}
-The Artefact begins with the consent form displayed (see figure 9). Once the player ticks the consent icon and presses Enter, the tutorial begins. The tutorial, as seen in figure 4, has a list of objectives in the top left of the screen and contains pop-ups in the bottom center that guide the player on their current objective. 
+The Artefact begins with the consent form displayed (see \textit{figure \ref{fig::9}}). Once the player ticks the consent icon and presses Enter, the tutorial begins. The tutorial, as seen in \textit{figure \ref{fig::4}}, has a list of objectives in the top left of the screen and contains pop-ups in the bottom center that guide the player on their current objective. 
 
 The tutorial first teaches the players to move through a short bended corridor. Then players are taught how to shoot using stationary targets. Next the ADS mechanic is introduced and promoted as the players are given the objective to shoot the next batch of targets whilst the player is moving. These target can only be damaged if the player is moving and shooting. This is essential to teach the player since doing well at the game relies heavily on the player being able to move and shoot at the same time. Then the player moves on to the next area and has to contend with a few normal enemies that can actually attack the player in order to acclimatise the player to the basic idea of the game.
 
 Initially, the user interface for the tutorial pop-ups were all the same colour but after pilot tests were carried out, it was noted that players did not realise the pop-ups were changing and so were not re-reading the next prompts. Therefore each time the pop-up changed, the colour scheme was changed to make it clear that new information was being given to the player. Also, the main controls were added to the top right of the tutorial to help less experienced players if they forgot the controls. 
 
 \subsection{Main Game}
-The main game level layout (see figure 3) is designed to encourage constant movement of the player. The simple placement of the 6 equally spaced out broken windows (enemy spawn areas) around the play space along with slightly different base spawn rates makes where the next enemy is coming from seem unpredictable to the player. This makes the center of the play space seem the safest to the player since they have a nearly full view of the level (see figure 20). The placement of the inner walls was used to limit line of sight and create choke points to make the game more difficult for the player and promote player movement. This has the added effect of grouping enemies chasing the player to become swarms that if left unchecked can overwhelm the player.
+The main game level layout (see \textit{figure \ref{fig::3}}) is designed to encourage constant movement of the player. The simple placement of the 6 equally spaced out broken windows (enemy spawn areas) around the play space along with slightly different base spawn rates makes where the next enemy is coming from seem unpredictable to the player. This makes the center of the play space seem the safest to the player since they have a nearly full view of the level (see \textit{figure \ref{fig::20}}). The placement of the inner walls was used to limit line of sight and create choke points to make the game more difficult for the player and promote player movement. This has the added effect of grouping enemies chasing the player to become swarms that if left unchecked can overwhelm the player.
 
 The various furniture objects in the level are there for aesthetic effect only and have no collision with the player or enemies. This is explained in the tutorial so as not to confuse the player. The only objects that the player collides with are the walls, broken windows and enemies.
 
@@ -270,14 +277,14 @@ The various furniture objects in the level are there for aesthetic effect only a
 \begin{figure}[h]
 	\includegraphics[width=1.0\linewidth]{artefactscreenshotlevelspawns.jpg}
 	\caption{Screenshot of the Level Layout with Spawn Points Circled Red}
-	\label{Analysis Test}
+	\label{fig::3}
 \end{figure} 
 
 
 \begin{figure}[h]
 	\includegraphics[width=1.0\linewidth]{tutorialscreenshot.jpg}
 	\caption{Screenshot of the Tutorial}
-	\label{Analysis Test}
+	\label{fig::4}
 \end{figure} 
 
 
@@ -286,15 +293,15 @@ The various furniture objects in the level are there for aesthetic effect only a
 
 The Artefact was built using Unity 2018.4.2f1\footnote{\url{https://unity.com/}}. The DDA Algorithm was written in C\# using Visual Studio 2019\footnote{\url{https://visualstudio.microsoft.com/vs/}} as was the Top Down Shooting Game that the Algorithm would be used in. 
 
-The enemies move using the free system ``A* Pathfinding Project\footnote{\url{https://arongranberg.com/astar/}}" found on the Unity Asset Store.
+The enemies move using the free system ``A* Pathfinding Project"\footnote{\url{https://arongranberg.com/astar/}} found on the Unity Asset Store.
 
-The game art was procured for free using kenney assets\footnote{\url{https://kenney.nl/assets/topdown-shooter }}. The music played during the game is called fiberitron and is a royalty free track found online\footnote{\url{https://www.dl-sounds.com/royalty-free/fiberitron-loop/}}. The sound effects used are all free sounds found online\footnote{\url{https://www.zapsplat.com/sound-effect-categories/}}.
+The game art was procured for free using kenney assets\footnote{\url{https://kenney.nl/assets/topdown-shooter }}. The music played during the game is called fiberitron and is a royalty free track found online\footnote{\url{https://www.dl-sounds.com/royalty-free/fiberitron-loop/}}. The sound effects used are all free sounds found online\footnote{\url{https://www.zapsplat.com/sound-effect-categories/}}. The following subsections describe the Artefact and how it was developed.
 
 
 \subsection{Dynamic Difficulty Algorithm}
 
 
-Initially the plan was to use an AI Director and player grading system similar to those used in \textit{Left 4 Dead} \cite{game:left4dead} and \textit{Resident Evil 4} \cite{game:re4}. This would involve monitoring and altering heuristics as the game is being played. Originally the Artefact used a modified version of the group team game as a base. This included a twin stick player character, enemy spawners, and enemies (figure 3). A script was created called AIDirector.cs that altered spawn rates and enemy statistics such as speed, based on an emotional intensity value that ranges from 0 to 100. This value increased or decreased based on a number of factors, including but not limited to player skill, player health, number of enemies and proximity of enemies. 
+Initially the plan was to use an AI Director and player grading system similar to those used in \textit{Left 4 Dead} \cite{game:left4dead} and \textit{Resident Evil 4} \cite{game:re4}. This would involve monitoring and altering heuristics as the game is being played. Originally the Artefact used a modified version of the group team game as a base (see \textit{figure \ref{fig::3}}). This included a twin stick player character, enemy spawners, and enemies. A script was created called AIDirector.cs that altered spawn rates and enemy statistics such as speed, based on an emotional intensity value that ranges from 0 to 100. This value increased or decreased based on a number of factors, including but not limited to player skill, player health, number of enemies and proximity of enemies. 
 
 During early playtesting of this system, it became clear that the complex nature of the Algorithm lead to unsatisfactory results. In other words, the game was far too simple for such a complex set of heuristics to come together and amount to desirable outcomes. Having so many factors affecting just the spawn rate and enemy speed meant that fine tuning the effect each individual heuristic had on the difficulty was very challenging. Therefore it was decided that the algorithm should be simplified. This lead to the final algorithm which is fairly simple in essence. The final design works as follows. The enemy movement speed has a value. This value is increased by a certain factor each time an enemy is killed, thus making the game more and more difficult. If the player dies, the amount by which the enemy movement speed has increased is then halved. This lowers the difficulty. If the player dies again, that increase from the base enemy speed value is halved once again, thus lowering the difficulty again. This same method is used to increase or decrease the enemy spawn rate. This is a far more simple algorithm than the previous design but works much more efficiently at simulating dynamic difficulty in order to match the skill of the player. Design adjustments were made to accommodate the new design, player health was reduced so that the player would be killed in one hit for example. This meant that it would be easier to judge player skill and challenge based on the telemetry data being gathered during testing.
 
@@ -302,7 +309,7 @@ During early playtesting of this system, it became clear that the complex nature
 
 \subsection{System Development Life Cycle}
 
-The software used in this experiment was developed in it's entirety by one person. The initial prototype was created in conjunction with a video game that was in development by a team of developers including the Researcher, however, it was decided early on to discontinue this and to develop an entirely bespoke game for the project. This is mainly due to the potential risks involved in having to depend on the group based project reaching certain development milestones and not blocking the Researcher's continued development of the Artefact. Also, designing a bespoke DDA system was deemed to be much easier if the Researcher had full control of the design decisions that went into designing the game that it was to be used with. 
+The software used in this experiment was developed in it's entirety by one person. The initial prototype was created in conjunction with a video game that was in development by a team of developers including the Researcher, however, it was decided early on to discontinue this and to develop an entirely bespoke game for the project. This is mainly due to the potential risks involved in having to depend on the group based project reaching certain development milestones and not blocking the Researcher's continued development of the Artefact. Also, designing a bespoke DDA system was deemed to be much easier if the Researcher had full control of the design decisions that went into designing the game that it was to be used with. The first version of the bespoke game can be seen in \textit{figure \ref{fig::19}}.
 
 When developing the Artefact, the initial life cycle method proposed was the Agile Method, since team collaboration and communication would have been essential. After the decision to create a bespoke game was made, however, the development life cycle that was most suited to the project became The Prototyping Model \cite{isaias2015information}. An experimental approach to The Prototyping Model was most suited to the project since, like Agile, it is an iterative process that is more responsive to user needs. 
 
@@ -322,19 +329,19 @@ The data gathered from the experiment were output into a csv file on the univers
 
 \subsection{Hypothesis 1 - Players will enjoy playing the version with dynamic difficulty more than the version with static difficulty}
 
-This hypothesis was intended to judge whether or not players enjoyed playing the dynamic version of the game over the static version. Figure 6 shows us that there is a slight preference for the dynamic version. A t-test was carried out analysing the differences in how the players scored the two difficulty versions on the basis of player enjoyment. This test produced a p-value of 0.001638 and a t-value of 3.0634. The p-value is very low and therefore the null hypothesis can be rejected. The mean value of the differences was 6.08 showing that on average players enjoyed the dynamic version 6 percent more than the static version.
+This hypothesis was intended to judge whether or not players enjoyed playing the dynamic version of the game over the static version. \textit{Figure \ref{fig::6}} shows us that there is a slight preference for the dynamic version. A t-test was carried out analysing the differences in how the players scored the two difficulty versions on the basis of player enjoyment. This test produced a p-value of $p = 0.001638$ and a t-value of $t = 3.0634$. The p-value is very low and therefore the null hypothesis can be rejected. The mean value of the differences was 6.08 showing that on average players enjoyed the dynamic version 6 percent more than the static version.
 
 
 \begin{figure}[h]
 	\includegraphics[width=1.0\linewidth]{playerenjoymentandchallenge.jpg}
 	\caption{Boxplot of Enjoyment and Challenge Perceptions}
-	\label{Analysis Test}
+	\label{fig::5}
 \end{figure} 
 
 \begin{figure*}[h]
 	\includegraphics[width=1.0\linewidth]{questionnaireboxplot.jpg}
 	\caption{How Players Felt Playing Each Difficulty System}
-	\label{Analysis Test}
+	\label{fig::6}
 \end{figure*} 
 
 
@@ -343,45 +350,45 @@ This hypothesis was intended to judge whether or not players enjoyed playing the
 
 \subsection{Hypothesis 2 - There will be more variation in how challenged players were playing with static difficulty than when playing with dynamic difficulty}
 
-An F-Test was carried out to determine the variance of player deaths between the two difficulty versions. This is deemed by the researcher to be a valid assessment of difficulty. The test produced a p-value of 2.277e-09. This p-value is extremely low and therefore the null hypothesis can be rejected. The ratio of variances was 4.9226.
+An F-Test was carried out to determine the variance of player deaths in the static version compared with the variance of player deaths in the dynamic version. This is deemed by the researcher to be a valid assessment of actual challenge. The test produced a p-value of $p = 2.277e-09$. This p-value is extremely low and therefore the null hypothesis can be rejected. The ratio of variances was 4.9226. This means that there is more variance in the number of deaths players suffered in the static version. This leads one to suspect that with a diverse range of player skill levels, a static difficulty system is either too challenging or too easy for more players than would be the case in a dynamic difficulty system.
 
-Interestingly, player perception of difficulty may not be as varied as can be seen in Figure 11.  Therefore a second F-Test was carried out in order to determine the variance in challenge scores the two difficulty versions received by each player. This test analyses player perception of difficulty and therefore is tangentially related to the hypothesis in question. This second test produced a p-value of 0.4927. This p-value is too high and therefore the null hypothesis would not be rejected. The ratio of variances was 1.0047.
+Interestingly, player perceptions of challenge may not be as varied based on the results of ''I felt challenged" in the questionnaire. Therefore a second F-Test was carried out in order to determine the variance in the challenge perception scores received by the static version when compared to the results of the dynamic version. This test analyses player perception of challenge and therefore is tangentially related to the hypothesis in question. This second test produced a p-value of $p = 0.4927$. This p-value is too high and therefore the null hypothesis would not be rejected. The ratio of variances was 1.0047.
 
-This seems to indicate that although the difficulty appears to be more varied based on player deaths with the static difficulty, the perception of difficulty among players is less varied than one would expect.
+This seems to indicate that although the actual challenge appears to be more varied based on player deaths with the static difficulty, the perception of challenge among players is less varied in the static version than one would expect.
 
 
 
 \subsection{Hypothesis 3 - Players will be unable to reliably judge which version used dynamic difficulty}
 
-The data showed that 36 out of the 61 participants in the study correctly guessed which level used the dynamic difficulty system. A Chi-squared test was performed to determine the probability that this was higher that random chance. The test produced a p-value of 0.159. This p-value is low enough to discount the null hypothesis. This suggests that players were not able to reliably identify which version used dynamic difficulty.
+The data showed that 36 out of the 61 participants in the study correctly guessed which level used the dynamic difficulty system. A Chi-squared test was performed to determine the probability that this was higher that random chance. The test produced a p-value of $p = 0.159$. This p-value is low enough to discount the null hypothesis. This suggests that players were not able to reliably identify which version used dynamic difficulty.
 
 
 
 \begin{figure}[h]
 	\includegraphics[width=1.0\linewidth]{difficultyperceptions.jpg}
 	\caption{Boxplot of Challenge Perceptions}
-	\label{Analysis Test}
+	\label{fig::7}
 \end{figure} 
 
 \section{Discussion}
-The results from this experiment suggest that player enjoyment and challenge is affected by a games difficulty system. Although not drastically different, as shown in figure 5, the evidence suggests that the dynamic difficulty as implemented in this particular experiment was more enjoyable and less challenging to players than the static difficulty. The potential reasons behind this are discussed in this section.
+The results from this experiment suggest that player enjoyment and challenge is affected by a games difficulty system. Although not drastically different, as shown in \textit{figure \ref{fig::5}}, the evidence suggests that the dynamic difficulty as implemented in this particular experiment was more enjoyable and less challenging to players than the static difficulty. The potential reasons behind this are discussed in this section.
 
-As you can see from the findings illustrated in figure 6, on average players found the dynamic version more enjoyable than the static version. This is a fairly small difference but since the difficulty system is the only thing that was changed between the two levels, it's still a significant difference. The findings also show that players generally didn't get bored playing either version. 
+As you can see from the findings illustrated in \textit{figure \ref{fig::6}}, on average players found the dynamic version more enjoyable than the static version. This is a fairly small difference but since the difficulty system is the only thing that was changed between the two levels, it's still a significant difference. The findings also show that players generally didn't get bored playing either version. 
 
-The static version could become too hard for some players to enjoy whereas the dynamic version suffered from this problem less. Evidence that this could be the case can be seen in figure 7. This may indicate that the dynamic algorithm is functioning correctly in adapting challenge to player skill. The alternative could be that the static version was just designed to be too difficult for most players despite the researcher using the pilot tests to verify the overall difficulty of the static version.
+The static version could become too hard for some players to enjoy whereas the dynamic version suffered from this problem less. Evidence that this could be the case can be seen in \textit{figure \ref{fig::7}}. This may indicate that the dynamic algorithm is functioning correctly in adapting challenge to player skill. The alternative could be that the static version was just designed to be too difficult for most players despite the researcher using the pilot tests to verify the overall difficulty of the static version.
 
-The game would allow up to 15 enemies on the screen at a time if players could not defeat them fast enough, this could lead to a swarm of enemies attacking the player at times. As shown in figure 7, these swarms were more likely to be overcome by the player in the dynamic version. This is likely due to the fact that enemy speed values would be lowered if the player is struggling in the dynamic version whereas in the static version the enemy speed and spawn rate steadily increases regardless of the skill of the individual player. The ability of the player to overcome adversity is a possible factor in how much they enjoyed the game and how difficult it felt for them.
+The game would allow up to 15 enemies on the screen at a time if players could not defeat them fast enough, this could lead to a swarm of enemies attacking the player at times. As shown in \textit{figure \ref{fig::7}}, these swarms were more likely to be overcome by the player in the dynamic version. This is likely due to the fact that enemy speed values would be lowered if the player is struggling in the dynamic version whereas in the static version the enemy speed and spawn rate steadily increases regardless of the skill of the individual player. The ability of the player to overcome adversity is a possible factor in how much they enjoyed the game and how difficult it felt for them.
 
-In figure 15 we can see that with the dynamic version, there is a very slight positive correlation between how skilled players felt and how challenged they felt. The opposite can be seen with the static version in figure 16 where it seems that the more skilled a player felt, the less challenging the game felt. This is an interesting observation and could suggest that when a difficulty system is dynamic, the player is more likely to feel like they are good at the game despite feeling that the game is challenging to them or perhaps even because the game is challenging them appropriately for how good they are.
+In \textit{figure \ref{fig::15}} we can see that with the dynamic version, there is a very slight positive correlation between how skilled players felt and how challenged they felt. The opposite can be seen with the static version in \textit{figure \ref{fig::16}} where it seems that the more skilled a player felt, the less challenging the game felt. This is an interesting observation and could suggest that when a difficulty system is dynamic, the player is more likely to feel like they are good at the game despite feeling that the game is challenging to them or perhaps even because the game is challenging them appropriately for how good they are.
 
-Figure 6 also shows that with the dynamic version, players never felt bored and rarely felt frustrated. This, coupled with the fact players did feel challenged and similarly skilled, promotes the idea that the dynamic version successfully achieved ''Game Flow" as discussed previously and in figure 1. This cannot be said for the static version since although not feeling bored, more players felt frustrated and there was much more disparity between how challenged they felt and how skilled they felt. 
+\textit{Figure \ref{fig::6}} also shows that with the dynamic version, players never felt bored and rarely felt frustrated. This, coupled with the fact players did feel challenged and similarly skilled, promotes the idea that the dynamic version successfully achieved ''Game Flow" as discussed previously and in \textit{figure \ref{fig::1}}. This cannot be said for the static version since although not feeling bored, more players felt frustrated and there was much more disparity between how challenged they felt and how skilled they felt. 
 
 
 
 
 \section{Limitations}
 
-Although it is particularly encouraging to see that the results in figure 6 reflect the idea that the dynamic version indeed created flow, it cannot be forgotten that flow is particularly difficult to quantify and correctly assess. This is especially true with a game as short as the game in this experiment.
+Although it is particularly encouraging to see that the results in \textit{figure \ref{fig::6}} reflect the idea that the dynamic version indeed created flow, it cannot be forgotten that flow is particularly difficult to quantify and correctly assess. This is especially true with a game as short as the game in this experiment.
 
 It must be noted that one player decided to go against the objective of killing as many enemies as possible and just outrun the enemies in the dynamic version of the game. Since the enemies were not being killed and there was a limit of 15 enemies spawned at a time, the player was able to outrun the enemies for the whole 150 seconds without dying. This is a design flaw in the algorithm the researcher did not foresee. It should be noted that this player was a professional game designer and the data from this player was omitted from the rest of the results since it would not be fairly judging the algorithm as it's intended to work. To correct this, the algorithm could be adjusted to increase the difficulty when a stalemate like this occurs.
 
@@ -422,88 +429,88 @@ Link to Repository:
 The specific script I have made for the Dynamic Difficulty Algorithm is AIDirector.cs but the entirety of the Unity Project was created and designed for the experiment.
 
 \subsection{Unit Tests}
-Figure 13 shows the unit tests created for the AIDirector using the Unity Test Runner.
+\textit{Figure \ref{fig::8}} shows the unit tests created for the AIDirector using the Unity Test Runner.
 
 \begin{figure}[h]
 	\includegraphics[width=1.0\linewidth]{unittests.jpg}
 	\caption{Static Scatter plot of Player Enjoyment vs Player Deaths}
-	\label{Analysis Test}
+	\label{fig::8}
 \end{figure}
 
 \begin{figure*}[h]
 	\includegraphics[width=0.75\linewidth]{consentformingame.jpg}
 	\caption{Consent Form}
-	\label{Analysis Test}
+	\label{fig::9}
 \end{figure*} 
 
 \begin{figure*}[h]
 	\includegraphics[width=0.75\linewidth]{questionnaireingame.jpg}
 	\caption{In-Game Questionnaire}
-	\label{Analysis Test}
+	\label{fig::10}
 \end{figure*} 
 
 
 
-Figure 14 shows the final iteration of the consent form. While originally it was designed to be in paper form, it was decided that implementing it into the beginning of the artefact itself would be more efficient and enables the participant to consent before even being able to access the game.
+\textit{Figure \ref{fig::9}} shows the final iteration of the consent form. While originally it was designed to be in paper form, it was decided that implementing it into the beginning of the artefact itself would be more efficient and enables the participant to consent before even being able to access the game.
 
 \begin{figure*}[h]
 	\includegraphics[width=0.75\linewidth]{dynamicfunKDR.jpg}
 	\caption{Scatter plot of Player Enjoyment vs Player Kill/Death Ratio}
-	\label{Analysis Test}
+	\label{fig::11}
 \end{figure*} 
 
 \begin{figure*}[h]
 	\includegraphics[width=0.75\linewidth]{staticfunKDR.jpg}
 	\caption{Static Scatter plot of Player Enjoyment vs Player Kill/Death Ratio}
-	\label{Analysis Test}
+	\label{fig::12}
 \end{figure*} 
 
 \begin{figure*}[h]
 	\includegraphics[width=0.75\linewidth]{dynamicfundeath.jpg}
 	\caption{Dynamic Scatter plot of Player Enjoyment vs Player Deaths}
-	\label{Analysis Test}
+	\label{fig::13}
 \end{figure*} 
 
 \begin{figure*}[h]
 	\includegraphics[width=0.75\linewidth]{staticfundeath.jpg}
 	\caption{Static Scatter plot of Player Enjoyment vs Player Deaths}
-	\label{Analysis Test}
+	\label{fig::14}
 \end{figure*}
 
 \begin{figure*}[h]
 	\includegraphics[width=0.75\linewidth]{dynamicchallengevsskilled.jpg}
 	\caption{Dynamic Scatter plot of Skill and Challenge Perceptions}
-	\label{Analysis Test}
+	\label{fig::15}
 \end{figure*} 
 
 \begin{figure*}[h]
 	\includegraphics[width=0.75\linewidth]{staticchallengevsskilled.jpg}
 	\caption{Static Scatter plot of Skill and Challenge Perceptions}
-	\label{Analysis Test}
+	\label{fig::16}
 \end{figure*} 
 
 \begin{figure*}[h]
 	\includegraphics[width=0.75\linewidth]{dynamicexpvschallenge.jpg}
 	\caption{Dynamic Scatter plot of Experience and Challenge Perceptions}
-	\label{Analysis Test}
+	\label{fig::17}
 \end{figure*}
 
 \begin{figure*}[h]
 	\includegraphics[width=0.75\linewidth]{staticexpvschallenge.jpg}
 	\caption{Static Scatter plot of Experience and Challenge Perceptions}
-	\label{Analysis Test}
+	\label{fig::18}
 \end{figure*}
 
 \begin{figure*}[h]
 	\includegraphics[width=0.75\linewidth]{secondprototype.jpg}
 	\caption{Initial Bespoke Game Prototype}
-	\label{Analysis Test}
+	\label{fig::19}
 \end{figure*} 
 
 \begin{figure*}[h]
 	\includegraphics[width=0.75\linewidth]{maingame.jpg}
 	\caption{Screenshot of the Main Game Level}
-	\label{Analysis Test}
+	\label{fig::20}
 \end{figure*} 
 
 
