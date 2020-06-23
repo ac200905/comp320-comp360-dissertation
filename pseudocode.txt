@@ -1,0 +1,37 @@
+
+UpdateSkillGrade
+	# Skill rating based on kills
+	skillGrade = numEnemiesKilled
+	
+	# Half skill rating if player dies
+	if (playerJustDied)
+		skillGrade = skillGrade / 2
+		numEnemiesKilled = numEnemiesKilled / 2
+	
+UpdateDynamicSpawnDelay
+	# Delay decreases with higher skill rating
+	# Delay increases with lower skill rating
+	spawnDelay = maxSpawnDelay - (skillGrade * modifier)
+		
+UpdateDynamicEnemySpeed
+	# Speed increases with higher skill rating
+	# Speed decreases with lower skill rating
+	enemySpeed = minEnemySpeed + (skillGrade * modifier)
+	
+	
+
+UpdateStaticSpawnDelay
+	delayDiff = maxSpawnDelay - minSpawnDelay
+	delayIncreasePerSec = delayDiff / totalLevelTime
+	spawnDelay = currentSpawnDelay - (delayIncreasePerSec * deltaTime)
+	
+UpdateStaticEnemySpeed
+	speedDiff = maxEnemySpeed - minEnemySpeed
+	speedIncreasePerSec = speedDiff / totalLevelTime;
+	enemySpeed = enemySpeed + (speedIncreasePerSec * deltaTime)
+	
+	
+	
+	
+	
+	
